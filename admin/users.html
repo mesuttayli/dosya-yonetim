@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcılar | TechCode Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a0e17' width='100' height='100' rx='20'/><text x='50' y='65' font-family='monospace' font-size='50' fill='%2300d4ff' text-anchor='middle'>&lt;/&gt;</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <div class="logo-icon">&lt;/&gt;</div>
+                    <span>TechCode</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">Ana Menü</span>
+                    <a href="dashboard.html" class="nav-item">
+                        <i class="fas fa-th-large"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="pages.html" class="nav-item">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Sayfalar</span>
+                    </a>
+                    <a href="services.html" class="nav-item">
+                        <i class="fas fa-cogs"></i>
+                        <span>Hizmetler</span>
+                    </a>
+                    <a href="projects.html" class="nav-item">
+                        <i class="fas fa-folder-open"></i>
+                        <span>Projeler</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">İçerik</span>
+                    <a href="blog.html" class="nav-item">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Blog / Duyurular</span>
+                    </a>
+                    <a href="testimonials.html" class="nav-item">
+                        <i class="fas fa-quote-right"></i>
+                        <span>Referanslar</span>
+                    </a>
+                    <a href="messages.html" class="nav-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mesajlar</span>
+                        <span class="badge">5</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Yönetim</span>
+                    <a href="users.html" class="nav-item active">
+                        <i class="fas fa-users"></i>
+                        <span>Kullanıcılar</span>
+                    </a>
+                    <a href="settings.html" class="nav-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Site Ayarları</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="sidebar-user-avatar">A</div>
+                    <div class="sidebar-user-info">
+                        <h5>Admin User</h5>
+                        <span>Yönetici</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="page-title">Kullanıcı Yönetimi</h1>
+                </div>
+
+                <div class="header-right">
+                    <div class="header-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Kullanıcı ara...">
+                    </div>
+                    <div class="header-actions">
+                        <a href="../site/index.html" class="header-btn" title="Siteyi Görüntüle" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <a href="login.html" class="header-btn" title="Çıkış Yap">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- Info Alert -->
+                <div class="alert alert-info" style="margin-bottom: 25px;">
+                    <i class="fas fa-info-circle"></i>
+                    <div class="alert-content">
+                        <h5>Rol Bazlı Yetkilendirme</h5>
+                        <p><strong>Admin:</strong> Tüm yetkiler | <strong>Editör:</strong> İçerik düzenleme | <strong>Yazar:</strong> Blog yazma | <strong>Görüntüleyici:</strong> Sadece okuma</p>
+                    </div>
+                </div>
+
+                <!-- Header Actions -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                    <div>
+                        <p style="color: var(--text-secondary); margin: 0;">Toplam 5 kullanıcı</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="openModal('userModal')">
+                        <i class="fas fa-user-plus"></i>
+                        Yeni Kullanıcı Ekle
+                    </button>
+                </div>
+
+                <!-- Role Stats -->
+                <div class="stats-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 25px;">
+                    <div class="stat-card">
+                        <div class="stat-card-icon purple">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="stat-card-info">
+                            <h3>2</h3>
+                            <p>Admin</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon blue">
+                            <i class="fas fa-user-edit"></i>
+                        </div>
+                        <div class="stat-card-info">
+                            <h3>2</h3>
+                            <p>Editör</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon green">
+                            <i class="fas fa-user-pen"></i>
+                        </div>
+                        <div class="stat-card-info">
+                            <h3>1</h3>
+                            <p>Yazar</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon orange">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="stat-card-info">
+                            <h3>0</h3>
+                            <p>Görüntüleyici</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Table -->
+                <div class="admin-card">
+                    <div class="admin-card-body" style="padding: 0; overflow-x: auto;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Kullanıcı</th>
+                                    <th>E-posta</th>
+                                    <th>Rol</th>
+                                    <th>Durum</th>
+                                    <th>Son Giriş</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <div class="message-avatar" style="width: 40px; height: 40px; font-size: 0.9rem;">AU</div>
+                                            <div>
+                                                <strong>Admin User</strong>
+                                                <p style="color: var(--text-muted); font-size: 0.8rem; margin: 0;">@admin</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>admin@techcode.com.tr</td>
+                                    <td><span class="role-badge admin"><i class="fas fa-shield-alt"></i> Admin</span></td>
+                                    <td><span class="status-badge active">Aktif</span></td>
+                                    <td>Şimdi</td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="table-action-btn" title="Düzenle"><i class="fas fa-edit"></i></button>
+                                            <button class="table-action-btn" title="Görüntüle"><i class="fas fa-eye"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <div class="message-avatar" style="width: 40px; height: 40px; font-size: 0.9rem;">SA</div>
+                                            <div>
+                                                <strong>Super Admin</strong>
+                                                <p style="color: var(--text-muted); font-size: 0.8rem; margin: 0;">@superadmin</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>super@techcode.com.tr</td>
+                                    <td><span class="role-badge admin"><i class="fas fa-shield-alt"></i> Admin</span></td>
+                                    <td><span class="status-badge active">Aktif</span></td>
+                                    <td>2 saat önce</td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="table-action-btn" title="Düzenle"><i class="fas fa-edit"></i></button>
+                                            <button class="table-action-btn" title="Görüntüle"><i class="fas fa-eye"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <div class="message-avatar" style="width: 40px; height: 40px; font-size: 0.9rem; background: linear-gradient(135deg, var(--accent-blue) 0%, #00a3cc 100%);">E1</div>
+                                            <div>
+                                                <strong>Editör 1</strong>
+                                                <p style="color: var(--text-muted); font-size: 0.8rem; margin: 0;">@editor1</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>editor1@techcode.com.tr</td>
+                                    <td><span class="role-badge editor"><i class="fas fa-edit"></i> Editör</span></td>
+                                    <td><span class="status-badge active">Aktif</span></td>
+                                    <td>1 gün önce</td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="table-action-btn" title="Düzenle"><i class="fas fa-edit"></i></button>
+                                            <button class="table-action-btn" title="Görüntüle"><i class="fas fa-eye"></i></button>
+                                            <button class="table-action-btn delete" title="Sil"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <div class="message-avatar" style="width: 40px; height: 40px; font-size: 0.9rem; background: linear-gradient(135deg, var(--accent-blue) 0%, #00a3cc 100%);">E2</div>
+                                            <div>
+                                                <strong>Editör 2</strong>
+                                                <p style="color: var(--text-muted); font-size: 0.8rem; margin: 0;">@editor2</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>editor2@techcode.com.tr</td>
+                                    <td><span class="role-badge editor"><i class="fas fa-edit"></i> Editör</span></td>
+                                    <td><span class="status-badge pending">Beklemede</span></td>
+                                    <td>3 gün önce</td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="table-action-btn" title="Düzenle"><i class="fas fa-edit"></i></button>
+                                            <button class="table-action-btn" title="Görüntüle"><i class="fas fa-eye"></i></button>
+                                            <button class="table-action-btn delete" title="Sil"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <div class="message-avatar" style="width: 40px; height: 40px; font-size: 0.9rem; background: linear-gradient(135deg, var(--accent-green) 0%, #00cc6a 100%);">Y1</div>
+                                            <div>
+                                                <strong>Yazar 1</strong>
+                                                <p style="color: var(--text-muted); font-size: 0.8rem; margin: 0;">@yazar1</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>yazar1@techcode.com.tr</td>
+                                    <td><span class="role-badge user"><i class="fas fa-pen"></i> Yazar</span></td>
+                                    <td><span class="status-badge active">Aktif</span></td>
+                                    <td>5 gün önce</td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="table-action-btn" title="Düzenle"><i class="fas fa-edit"></i></button>
+                                            <button class="table-action-btn" title="Görüntüle"><i class="fas fa-eye"></i></button>
+                                            <button class="table-action-btn delete" title="Sil"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Role Permissions Card -->
+                <div class="admin-card" style="margin-top: 25px;">
+                    <div class="admin-card-header">
+                        <h3>Rol Yetkileri</h3>
+                    </div>
+                    <div class="admin-card-body" style="padding: 0; overflow-x: auto;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Yetki</th>
+                                    <th style="text-align: center;">Admin</th>
+                                    <th style="text-align: center;">Editör</th>
+                                    <th style="text-align: center;">Yazar</th>
+                                    <th style="text-align: center;">Görüntüleyici</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Dashboard Görüntüleme</td>
+                                    <td style="text-align: center; color: var(--accent-green);"><i class="fas fa-check"></i></td>
+                                    <td style="text-align: center; color: var(--accent-green);"><i class="fas fa-check"></i></td>
+                                    <td style="text-align: center; color: var(--accent-green);"><i class="fas fa-check"></i></td>
+                                    <td style="text-align: center; color: var(--accent-green);"><i class="fas fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Sayfa Yönetimi</td>
+                                    <td style="text-align: center; color: var(--accent-green);"><i class="fas fa-check"></i></td>
+                                    <td style="text-align: center; color: var(--accent-green);"><i class="fas fa-check"></i></td>
+                                    <td style="text-align: center; color: #ff5f57;"><i class="fas fa-times"></i></td>
+                                    <td style="text-align: center; color: #ff5f57;"><i class="fas fa-times"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Proje Yönetimi</td>
+                                    <td style="text-align: center; color: var(--accent-green);"><i class="fas fa-check"></i></td>
+                                    <td style="text-align: center; color: var(--accent-green);"><i class="fas fa-check"></i></td>
+                                    <td style="text-align: center; color: #ff5f57;"><i class="fas fa-times"></i></td>
+                                    <td style="text-align: center; color: #ff5f57;"><i class="fas fa-times"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Blog Yazma</td>
+                                    <td style="text-align: center; color: var(--accent-green);"><i class="fas fa-check"></i></td>
+                                    <td style="text-align: center; color: var(--accent-green);"><i class="fas fa-check"></i></td>
+                                    <td style="text-align: center; color: var(--accent-green);"><i class="fas fa-check"></i></td>
+                                    <td style="text-align: center; color: #ff5f57;"><i class="fas fa-times"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Mesaj Görüntüleme</td>
+                                    <td style="text-align: center; color: var(--accent-green);"><i class="fas fa-check"></i></td>
+                                    <td style="text-align: center; color: var(--accent-green);"><i class="fas fa-check"></i></td>
+                                    <td style="text-align: center; color: #ff5f57;"><i class="fas fa-times"></i></td>
+                                    <td style="text-align: center; color: #ff5f57;"><i class="fas fa-times"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Kullanıcı Yönetimi</td>
+                                    <td style="text-align: center; color: var(--accent-green);"><i class="fas fa-check"></i></td>
+                                    <td style="text-align: center; color: #ff5f57;"><i class="fas fa-times"></i></td>
+                                    <td style="text-align: center; color: #ff5f57;"><i class="fas fa-times"></i></td>
+                                    <td style="text-align: center; color: #ff5f57;"><i class="fas fa-times"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Site Ayarları</td>
+                                    <td style="text-align: center; color: var(--accent-green);"><i class="fas fa-check"></i></td>
+                                    <td style="text-align: center; color: #ff5f57;"><i class="fas fa-times"></i></td>
+                                    <td style="text-align: center; color: #ff5f57;"><i class="fas fa-times"></i></td>
+                                    <td style="text-align: center; color: #ff5f57;"><i class="fas fa-times"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit User Modal -->
+    <div class="modal-overlay" id="userModal">
+        <div class="modal" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3>Yeni Kullanıcı Ekle</h3>
+                <button class="modal-close" onclick="closeModal('userModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="admin-form">
+                    <div class="form-group">
+                        <label>Ad Soyad <span class="required">*</span></label>
+                        <input type="text" class="form-control" placeholder="Kullanıcı adı soyadı">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Kullanıcı Adı <span class="required">*</span></label>
+                        <input type="text" class="form-control" placeholder="@kullaniciadi">
+                    </div>
+
+                    <div class="form-group">
+                        <label>E-posta <span class="required">*</span></label>
+                        <input type="email" class="form-control" placeholder="email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Şifre <span class="required">*</span></label>
+                        <input type="password" class="form-control" placeholder="En az 8 karakter">
+                        <span class="form-hint">En az 8 karakter, bir büyük harf ve bir rakam içermelidir.</span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Rol <span class="required">*</span></label>
+                            <select class="form-control">
+                                <option value="">Seçin</option>
+                                <option value="admin">Admin</option>
+                                <option value="editor">Editör</option>
+                                <option value="author">Yazar</option>
+                                <option value="viewer">Görüntüleyici</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Durum</label>
+                            <select class="form-control">
+                                <option value="active">Aktif</option>
+                                <option value="pending">Beklemede</option>
+                                <option value="inactive">Pasif</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-check">
+                            <input type="checkbox" checked>
+                            <span>Hoş geldin e-postası gönder</span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('userModal')">İptal</button>
+                <button class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i>
+                    Kullanıcı Ekle
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html>

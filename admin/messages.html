@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesajlar | TechCode Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a0e17' width='100' height='100' rx='20'/><text x='50' y='65' font-family='monospace' font-size='50' fill='%2300d4ff' text-anchor='middle'>&lt;/&gt;</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <div class="logo-icon">&lt;/&gt;</div>
+                    <span>TechCode</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">Ana Menü</span>
+                    <a href="dashboard.html" class="nav-item">
+                        <i class="fas fa-th-large"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="pages.html" class="nav-item">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Sayfalar</span>
+                    </a>
+                    <a href="services.html" class="nav-item">
+                        <i class="fas fa-cogs"></i>
+                        <span>Hizmetler</span>
+                    </a>
+                    <a href="projects.html" class="nav-item">
+                        <i class="fas fa-folder-open"></i>
+                        <span>Projeler</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">İçerik</span>
+                    <a href="blog.html" class="nav-item">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Blog / Duyurular</span>
+                    </a>
+                    <a href="testimonials.html" class="nav-item">
+                        <i class="fas fa-quote-right"></i>
+                        <span>Referanslar</span>
+                    </a>
+                    <a href="messages.html" class="nav-item active">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mesajlar</span>
+                        <span class="badge">5</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Yönetim</span>
+                    <a href="users.html" class="nav-item">
+                        <i class="fas fa-users"></i>
+                        <span>Kullanıcılar</span>
+                    </a>
+                    <a href="settings.html" class="nav-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Site Ayarları</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="sidebar-user-avatar">A</div>
+                    <div class="sidebar-user-info">
+                        <h5>Admin User</h5>
+                        <span>Yönetici</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="page-title">İletişim Mesajları</h1>
+                </div>
+
+                <div class="header-right">
+                    <div class="header-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Mesaj ara...">
+                    </div>
+                    <div class="header-actions">
+                        <a href="../site/index.html" class="header-btn" title="Siteyi Görüntüle" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <a href="login.html" class="header-btn" title="Çıkış Yap">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- Stats -->
+                <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 25px;">
+                    <div class="stat-card">
+                        <div class="stat-card-icon blue">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="stat-card-info">
+                            <h3>156</h3>
+                            <p>Toplam Mesaj</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon green">
+                            <i class="fas fa-envelope-open"></i>
+                        </div>
+                        <div class="stat-card-info">
+                            <h3>5</h3>
+                            <p>Okunmamış</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon purple">
+                            <i class="fas fa-reply"></i>
+                        </div>
+                        <div class="stat-card-info">
+                            <h3>142</h3>
+                            <p>Yanıtlanan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="admin-card" style="margin-bottom: 25px;">
+                    <div class="admin-card-body" style="padding: 15px 20px;">
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center;">
+                            <select class="form-control" style="width: auto; min-width: 150px;">
+                                <option value="">Tüm Mesajlar</option>
+                                <option value="unread">Okunmamış</option>
+                                <option value="read">Okunmuş</option>
+                                <option value="replied">Yanıtlanan</option>
+                            </select>
+                            <select class="form-control" style="width: auto; min-width: 150px;">
+                                <option value="">Tüm Konular</option>
+                                <option value="web">Web Geliştirme</option>
+                                <option value="mobile">Mobil Uygulama</option>
+                                <option value="enterprise">Kurumsal Yazılım</option>
+                                <option value="ecommerce">E-Ticaret</option>
+                            </select>
+                            <button class="btn btn-secondary btn-sm">
+                                <i class="fas fa-filter"></i>
+                                Filtrele
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages List -->
+                <div class="admin-card">
+                    <div class="admin-card-header">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <input type="checkbox" id="selectAllMessages">
+                            <span style="color: var(--text-secondary); font-size: 0.9rem;">Tümünü seç</span>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn btn-ghost btn-sm">
+                                <i class="fas fa-check-double"></i>
+                                Okundu İşaretle
+                            </button>
+                            <button class="btn btn-ghost btn-sm" style="color: #ff5f57;">
+                                <i class="fas fa-trash"></i>
+                                Sil
+                            </button>
+                        </div>
+                    </div>
+                    <div class="admin-card-body" style="padding: 0;">
+                        <div class="message-list">
+                            <div class="message-item unread" onclick="openMessageModal(1)">
+                                <input type="checkbox" class="message-checkbox" onclick="event.stopPropagation()">
+                                <div class="message-avatar">AY</div>
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <span class="message-sender">Ahmet Yılmaz</span>
+                                        <span class="message-time">10 dk önce</span>
+                                    </div>
+                                    <div class="message-subject">E-ticaret projesi hakkında</div>
+                                    <div class="message-preview">Merhaba, e-ticaret projemiz için teklif almak istiyorum. Şirketimiz için özel tasarlanmış bir platform...</div>
+                                </div>
+                            </div>
+
+                            <div class="message-item unread" onclick="openMessageModal(2)">
+                                <input type="checkbox" class="message-checkbox" onclick="event.stopPropagation()">
+                                <div class="message-avatar">ZK</div>
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <span class="message-sender">Zeynep Kaya</span>
+                                        <span class="message-time">1 saat önce</span>
+                                    </div>
+                                    <div class="message-subject">Mobil uygulama geliştirme</div>
+                                    <div class="message-preview">iOS ve Android için bir uygulama geliştirmek istiyoruz. Eğitim sektöründe faaliyet gösteren...</div>
+                                </div>
+                            </div>
+
+                            <div class="message-item unread" onclick="openMessageModal(3)">
+                                <input type="checkbox" class="message-checkbox" onclick="event.stopPropagation()">
+                                <div class="message-avatar">MD</div>
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <span class="message-sender">Mehmet Demir</span>
+                                        <span class="message-time">3 saat önce</span>
+                                    </div>
+                                    <div class="message-subject">Kurumsal yazılım talebi</div>
+                                    <div class="message-preview">Şirketimiz için özel bir ERP sistemi geliştirmek istiyoruz. Mevcut süreçlerimizi dijitalleştirmek...</div>
+                                </div>
+                            </div>
+
+                            <div class="message-item" onclick="openMessageModal(4)">
+                                <input type="checkbox" class="message-checkbox" onclick="event.stopPropagation()">
+                                <div class="message-avatar">EÖ</div>
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <span class="message-sender">Elif Özdemir</span>
+                                        <span class="message-time">1 gün önce</span>
+                                    </div>
+                                    <div class="message-subject">Web sitesi yenileme</div>
+                                    <div class="message-preview">Mevcut kurumsal web sitemizi yenilemek ve modernize etmek istiyoruz. SEO uyumlu ve...</div>
+                                </div>
+                            </div>
+
+                            <div class="message-item" onclick="openMessageModal(5)">
+                                <input type="checkbox" class="message-checkbox" onclick="event.stopPropagation()">
+                                <div class="message-avatar">CY</div>
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <span class="message-sender">Can Yıldırım</span>
+                                        <span class="message-time">2 gün önce</span>
+                                    </div>
+                                    <div class="message-subject">API entegrasyonu</div>
+                                    <div class="message-preview">Mevcut sistemimize üçüncü parti API entegrasyonları yapmak istiyoruz. Ödeme sistemleri ve...</div>
+                                </div>
+                            </div>
+
+                            <div class="message-item" onclick="openMessageModal(6)">
+                                <input type="checkbox" class="message-checkbox" onclick="event.stopPropagation()">
+                                <div class="message-avatar">SA</div>
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <span class="message-sender">Selin Aksoy</span>
+                                        <span class="message-time">3 gün önce</span>
+                                    </div>
+                                    <div class="message-subject">Cloud migration</div>
+                                    <div class="message-preview">On-premise sistemlerimizi cloud ortamına taşımak istiyoruz. AWS veya Azure tercihimiz...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-card-footer">
+                        <div class="pagination">
+                            <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">3</button>
+                            <button class="pagination-btn">4</button>
+                            <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Message Detail Modal -->
+    <div class="modal-overlay" id="messageModal">
+        <div class="modal" style="max-width: 650px;">
+            <div class="modal-header">
+                <h3>Mesaj Detayı</h3>
+                <button class="modal-close" onclick="closeModal('messageModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="margin-bottom: 25px;">
+                    <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                        <div class="message-avatar" style="width: 55px; height: 55px; font-size: 1.1rem;">AY</div>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">Ahmet Yılmaz</h4>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin: 0;">ahmet@example.com</p>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin: 0;">+90 532 123 45 67</p>
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-secondary); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                        <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 5px;">Konu</p>
+                        <p style="margin: 0; color: var(--text-primary);">E-ticaret projesi hakkında</p>
+                    </div>
+                    <div style="background: var(--bg-secondary); padding: 15px; border-radius: 10px;">
+                        <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 10px;">Mesaj</p>
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.7;">
+                            Merhaba,<br><br>
+                            E-ticaret projemiz için teklif almak istiyorum. Şirketimiz için özel tasarlanmış bir platform arıyoruz.
+                            Yaklaşık 5.000 ürünümüz var ve bunları online satışa açmak istiyoruz.<br><br>
+                            İstediğimiz özellikler:
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>Ürün yönetim paneli</li>
+                                <li>Stok takip sistemi</li>
+                                <li>Çoklu ödeme entegrasyonu</li>
+                                <li>Kargo entegrasyonu</li>
+                                <li>Mobil uyumlu tasarım</li>
+                            </ul>
+                            <br>
+                            En kısa sürede iletişime geçmenizi bekliyorum.<br><br>
+                            Saygılarımla,<br>
+                            Ahmet Yılmaz
+                        </p>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 15px; text-align: right;">
+                        <i class="fas fa-clock"></i> 23 Aralık 2024, 14:32
+                    </p>
+                </div>
+
+                <div style="border-top: 1px solid var(--border-color); padding-top: 20px;">
+                    <h5 style="margin-bottom: 15px;">Yanıt Gönder</h5>
+                    <textarea class="form-control" rows="4" placeholder="Yanıtınızı yazın..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('messageModal')">Kapat</button>
+                <button class="btn btn-primary">
+                    <i class="fas fa-reply"></i>
+                    Yanıtla
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/admin.js"></script>
+    <script>
+        function openMessageModal(id) {
+            document.getElementById('messageModal').classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Ayarları | TechCode Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a0e17' width='100' height='100' rx='20'/><text x='50' y='65' font-family='monospace' font-size='50' fill='%2300d4ff' text-anchor='middle'>&lt;/&gt;</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <div class="logo-icon">&lt;/&gt;</div>
+                    <span>TechCode</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">Ana Menü</span>
+                    <a href="dashboard.html" class="nav-item">
+                        <i class="fas fa-th-large"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="pages.html" class="nav-item">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Sayfalar</span>
+                    </a>
+                    <a href="services.html" class="nav-item">
+                        <i class="fas fa-cogs"></i>
+                        <span>Hizmetler</span>
+                    </a>
+                    <a href="projects.html" class="nav-item">
+                        <i class="fas fa-folder-open"></i>
+                        <span>Projeler</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">İçerik</span>
+                    <a href="blog.html" class="nav-item">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Blog / Duyurular</span>
+                    </a>
+                    <a href="testimonials.html" class="nav-item">
+                        <i class="fas fa-quote-right"></i>
+                        <span>Referanslar</span>
+                    </a>
+                    <a href="messages.html" class="nav-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mesajlar</span>
+                        <span class="badge">5</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Yönetim</span>
+                    <a href="users.html" class="nav-item">
+                        <i class="fas fa-users"></i>
+                        <span>Kullanıcılar</span>
+                    </a>
+                    <a href="settings.html" class="nav-item active">
+                        <i class="fas fa-cog"></i>
+                        <span>Site Ayarları</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="sidebar-user-avatar">A</div>
+                    <div class="sidebar-user-info">
+                        <h5>Admin User</h5>
+                        <span>Yönetici</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="page-title">Site Ayarları</h1>
+                </div>
+
+                <div class="header-right">
+                    <div class="header-actions">
+                        <a href="../site/index.html" class="header-btn" title="Siteyi Görüntüle" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <a href="login.html" class="header-btn" title="Çıkış Yap">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- Settings Tabs -->
+                <div style="display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;">
+                    <button class="btn btn-primary btn-sm" onclick="showTab('general')">
+                        <i class="fas fa-globe"></i> Genel
+                    </button>
+                    <button class="btn btn-secondary btn-sm" onclick="showTab('seo')">
+                        <i class="fas fa-search"></i> SEO
+                    </button>
+                    <button class="btn btn-secondary btn-sm" onclick="showTab('social')">
+                        <i class="fas fa-share-alt"></i> Sosyal Medya
+                    </button>
+                    <button class="btn btn-secondary btn-sm" onclick="showTab('email')">
+                        <i class="fas fa-envelope"></i> E-posta
+                    </button>
+                    <button class="btn btn-secondary btn-sm" onclick="showTab('appearance')">
+                        <i class="fas fa-palette"></i> Görünüm
+                    </button>
+                </div>
+
+                <!-- General Settings -->
+                <div id="tab-general" class="settings-tab">
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3><i class="fas fa-globe" style="margin-right: 10px; color: var(--accent-blue);"></i> Genel Ayarlar</h3>
+                        </div>
+                        <div class="admin-card-body">
+                            <form class="admin-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Site Adı <span class="required">*</span></label>
+                                        <input type="text" class="form-control" value="TechCode">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Site Sloganı</label>
+                                        <input type="text" class="form-control" value="Yazılım & Web Geliştirme">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Site Açıklaması</label>
+                                    <textarea class="form-control" rows="3">Profesyonel web sitesi ve yazılım geliştirme hizmetleri. Modern, ölçeklenebilir ve güvenilir çözümler.</textarea>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>E-posta Adresi</label>
+                                        <input type="email" class="form-control" value="info@techcode.com.tr">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Telefon</label>
+                                        <input type="tel" class="form-control" value="+90 (216) 123 45 67">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Adres</label>
+                                    <textarea class="form-control" rows="2">Teknokent, A Blok No: 42, Kadıköy, İstanbul</textarea>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Logo</label>
+                                        <div class="file-upload" style="padding: 20px;">
+                                            <i class="fas fa-image" style="margin-bottom: 10px;"></i>
+                                            <p style="margin: 0;">Logo yüklemek için tıklayın</p>
+                                            <input type="file" accept="image/*">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Favicon</label>
+                                        <div class="file-upload" style="padding: 20px;">
+                                            <i class="fas fa-image" style="margin-bottom: 10px;"></i>
+                                            <p style="margin: 0;">Favicon yüklemek için tıklayın</p>
+                                            <input type="file" accept="image/*">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="admin-card-footer">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-save"></i>
+                                Değişiklikleri Kaydet
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEO Settings -->
+                <div id="tab-seo" class="settings-tab" style="display: none;">
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3><i class="fas fa-search" style="margin-right: 10px; color: var(--accent-blue);"></i> SEO Ayarları</h3>
+                        </div>
+                        <div class="admin-card-body">
+                            <form class="admin-form">
+                                <div class="form-group">
+                                    <label>Meta Başlık</label>
+                                    <input type="text" class="form-control" value="TechCode | Yazılım & Web Geliştirme">
+                                    <span class="form-hint">Önerilen: 50-60 karakter</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Meta Açıklama</label>
+                                    <textarea class="form-control" rows="3">Profesyonel web sitesi ve yazılım geliştirme hizmetleri. Modern, ölçeklenebilir ve güvenilir çözümler.</textarea>
+                                    <span class="form-hint">Önerilen: 150-160 karakter</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Meta Anahtar Kelimeler</label>
+                                    <input type="text" class="form-control" value="yazılım, web geliştirme, mobil uygulama, dijital dönüşüm, teknoloji">
+                                    <span class="form-hint">Virgülle ayırarak yazın</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Google Analytics ID</label>
+                                    <input type="text" class="form-control" placeholder="UA-XXXXXXXXX-X veya G-XXXXXXXXXX">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Google Search Console Doğrulama</label>
+                                    <input type="text" class="form-control" placeholder="Doğrulama meta etiketi içeriği">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-check">
+                                        <input type="checkbox" checked>
+                                        <span>Sitemap.xml otomatik oluştur</span>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-check">
+                                        <input type="checkbox" checked>
+                                        <span>Robots.txt dosyası aktif</span>
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="admin-card-footer">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-save"></i>
+                                SEO Ayarlarını Kaydet
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Settings -->
+                <div id="tab-social" class="settings-tab" style="display: none;">
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3><i class="fas fa-share-alt" style="margin-right: 10px; color: var(--accent-blue);"></i> Sosyal Medya Ayarları</h3>
+                        </div>
+                        <div class="admin-card-body">
+                            <form class="admin-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label><i class="fab fa-linkedin" style="margin-right: 8px;"></i>LinkedIn</label>
+                                        <input type="url" class="form-control" placeholder="https://linkedin.com/company/...">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><i class="fab fa-twitter" style="margin-right: 8px;"></i>Twitter / X</label>
+                                        <input type="url" class="form-control" placeholder="https://twitter.com/...">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label><i class="fab fa-github" style="margin-right: 8px;"></i>GitHub</label>
+                                        <input type="url" class="form-control" placeholder="https://github.com/...">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><i class="fab fa-instagram" style="margin-right: 8px;"></i>Instagram</label>
+                                        <input type="url" class="form-control" placeholder="https://instagram.com/...">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label><i class="fab fa-facebook" style="margin-right: 8px;"></i>Facebook</label>
+                                        <input type="url" class="form-control" placeholder="https://facebook.com/...">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><i class="fab fa-youtube" style="margin-right: 8px;"></i>YouTube</label>
+                                        <input type="url" class="form-control" placeholder="https://youtube.com/...">
+                                    </div>
+                                </div>
+
+                                <hr style="border-color: var(--border-color); margin: 30px 0;">
+
+                                <h4 style="margin-bottom: 20px;">Open Graph Ayarları</h4>
+
+                                <div class="form-group">
+                                    <label>OG Görsel</label>
+                                    <div class="file-upload" style="padding: 20px;">
+                                        <i class="fas fa-image" style="margin-bottom: 10px;"></i>
+                                        <p style="margin: 0;">Sosyal medya paylaşım görseli (1200x630px önerilir)</p>
+                                        <input type="file" accept="image/*">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="admin-card-footer">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-save"></i>
+                                Sosyal Medya Ayarlarını Kaydet
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email Settings -->
+                <div id="tab-email" class="settings-tab" style="display: none;">
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3><i class="fas fa-envelope" style="margin-right: 10px; color: var(--accent-blue);"></i> E-posta Ayarları</h3>
+                        </div>
+                        <div class="admin-card-body">
+                            <form class="admin-form">
+                                <div class="alert alert-info" style="margin-bottom: 25px;">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="alert-content">
+                                        <h5>SMTP Ayarları</h5>
+                                        <p>İletişim formundan gelen mesajların ve sistem bildirimlerinin gönderilmesi için SMTP ayarlarını yapılandırın.</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>SMTP Sunucu</label>
+                                        <input type="text" class="form-control" placeholder="smtp.example.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>SMTP Port</label>
+                                        <input type="number" class="form-control" placeholder="587">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>SMTP Kullanıcı Adı</label>
+                                        <input type="text" class="form-control" placeholder="user@example.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>SMTP Şifre</label>
+                                        <input type="password" class="form-control" placeholder="••••••••">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Gönderen E-posta</label>
+                                        <input type="email" class="form-control" placeholder="noreply@techcode.com.tr">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Gönderen Adı</label>
+                                        <input type="text" class="form-control" placeholder="TechCode">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>İletişim Formu Alıcı E-postalar</label>
+                                    <input type="text" class="form-control" placeholder="info@techcode.com.tr, sales@techcode.com.tr">
+                                    <span class="form-hint">Virgülle ayırarak birden fazla e-posta ekleyebilirsiniz</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-check">
+                                        <input type="checkbox" checked>
+                                        <span>SSL/TLS Kullan</span>
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="admin-card-footer">
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-paper-plane"></i>
+                                Test E-postası Gönder
+                            </button>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-save"></i>
+                                E-posta Ayarlarını Kaydet
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Appearance Settings -->
+                <div id="tab-appearance" class="settings-tab" style="display: none;">
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3><i class="fas fa-palette" style="margin-right: 10px; color: var(--accent-blue);"></i> Görünüm Ayarları</h3>
+                        </div>
+                        <div class="admin-card-body">
+                            <form class="admin-form">
+                                <h4 style="margin-bottom: 20px;">Renk Paleti</h4>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Ana Arka Plan</label>
+                                        <div style="display: flex; gap: 10px; align-items: center;">
+                                            <input type="color" value="#0a0e17" style="width: 50px; height: 40px; border: none; border-radius: 8px; cursor: pointer;">
+                                            <input type="text" class="form-control" value="#0a0e17" style="flex: 1;">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>İkincil Arka Plan</label>
+                                        <div style="display: flex; gap: 10px; align-items: center;">
+                                            <input type="color" value="#121824" style="width: 50px; height: 40px; border: none; border-radius: 8px; cursor: pointer;">
+                                            <input type="text" class="form-control" value="#121824" style="flex: 1;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Vurgu Rengi (Mavi)</label>
+                                        <div style="display: flex; gap: 10px; align-items: center;">
+                                            <input type="color" value="#00d4ff" style="width: 50px; height: 40px; border: none; border-radius: 8px; cursor: pointer;">
+                                            <input type="text" class="form-control" value="#00d4ff" style="flex: 1;">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Vurgu Rengi (Mor)</label>
+                                        <div style="display: flex; gap: 10px; align-items: center;">
+                                            <input type="color" value="#7b2cbf" style="width: 50px; height: 40px; border: none; border-radius: 8px; cursor: pointer;">
+                                            <input type="text" class="form-control" value="#7b2cbf" style="flex: 1;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr style="border-color: var(--border-color); margin: 30px 0;">
+
+                                <h4 style="margin-bottom: 20px;">Hero Bölümü</h4>
+
+                                <div class="form-group">
+                                    <label>Hero Başlık</label>
+                                    <input type="text" class="form-control" value="Fikirlerinizi Kodla Hayata Geçiriyoruz">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Hero Alt Başlık</label>
+                                    <textarea class="form-control" rows="2">Modern teknolojiler ve yenilikçi yaklaşımlarla işletmenizi dijital dünyada bir adım öne taşıyoruz.</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Hero Badge Metni</label>
+                                    <input type="text" class="form-control" value="Yeni Nesil Yazılım Çözümleri">
+                                </div>
+
+                                <hr style="border-color: var(--border-color); margin: 30px 0;">
+
+                                <h4 style="margin-bottom: 20px;">İstatistikler</h4>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Tamamlanan Proje</label>
+                                        <input type="text" class="form-control" value="150+">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Mutlu Müşteri</label>
+                                        <input type="text" class="form-control" value="50+">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Yıllık Deneyim</label>
+                                        <input type="text" class="form-control" value="8+">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="admin-card-footer">
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-undo"></i>
+                                Varsayılana Sıfırla
+                            </button>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-save"></i>
+                                Görünüm Ayarlarını Kaydet
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../assets/js/admin.js"></script>
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.settings-tab').forEach(tab => {
+                tab.style.display = 'none';
+            });
+            // Show selected tab
+            document.getElementById('tab-' + tabName).style.display = 'block';
+
+            // Update button styles
+            document.querySelectorAll('[onclick^="showTab"]').forEach(btn => {
+                btn.classList.remove('btn-primary');
+                btn.classList.add('btn-secondary');
+            });
+            event.target.classList.remove('btn-secondary');
+            event.target.classList.add('btn-primary');
+        }
+    </script>
+</body>
+</html>
