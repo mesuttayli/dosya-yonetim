@@ -345,6 +345,11 @@ $colorMap = [
             <div class="grid grid-3">
                 <?php foreach ($testimonials as $testimonial): ?>
                 <div class="card testimonial-card">
+                    <div class="testimonial-rating">
+                        <?php for ($star = 1; $star <= 5; $star++): ?>
+                        <i class="fas fa-star" style="color: <?= $star <= ($testimonial['rating'] ?? 5) ? '#ffc107' : '#3a4555' ?>;"></i>
+                        <?php endfor; ?>
+                    </div>
                     <p class="testimonial-text">"<?= e($testimonial['content']) ?>"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">

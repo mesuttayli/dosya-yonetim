@@ -229,13 +229,10 @@ function setupDatabase() {
     return true;
 }
 
-// Kurulumu çalıştır
+// Kurulumu sessizce çalıştır (echo yok - web sayfasında görünmesin)
 try {
     setupDatabase();
-    echo "Veritabanı başarıyla kuruldu!\n";
-    echo "Admin Giriş Bilgileri:\n";
-    echo "E-posta: " . DEFAULT_ADMIN_EMAIL . "\n";
-    echo "Şifre: " . DEFAULT_ADMIN_PASSWORD . "\n";
 } catch (Exception $e) {
-    echo "Hata: " . $e->getMessage() . "\n";
+    // Hata logla ama ekrana yazma
+    error_log("TechCode DB Setup Error: " . $e->getMessage());
 }

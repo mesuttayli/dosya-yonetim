@@ -884,6 +884,17 @@ code, .code-text {
     padding: 40px;
 }
 
+.testimonial-rating {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.testimonial-rating i {
+    font-size: 1.1rem;
+}
+
 .testimonial-text {
     font-size: 1.125rem;
     font-style: italic;
