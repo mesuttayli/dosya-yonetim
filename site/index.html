@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechCode - Profesyonel web sitesi ve yazılım geliştirme hizmetleri. Modern, ölçeklenebilir ve güvenilir çözümler.">
+    <meta name="keywords" content="yazılım, web geliştirme, mobil uygulama, dijital dönüşüm, teknoloji">
+    <meta name="author" content="TechCode">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="TechCode - Yazılım & Web Geliştirme">
+    <meta property="og:description" content="Modern, ölçeklenebilir ve güvenilir yazılım çözümleri">
+    <meta property="og:type" content="website">
+
+    <title>TechCode | Yazılım & Web Geliştirme</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a0e17' width='100' height='100' rx='20'/><text x='50' y='65' font-family='monospace' font-size='50' fill='%2300d4ff' text-anchor='middle'>&lt;/&gt;</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+    <!-- ========================================
+         Navigation
+         ======================================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">&lt;/&gt;</div>
+                <span>TechCode</span>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="active">Ana Sayfa</a></li>
+                <li><a href="#services">Hizmetler</a></li>
+                <li><a href="#why-us">Neden Biz</a></li>
+                <li><a href="#projects">Projeler</a></li>
+                <li><a href="#testimonials">Referanslar</a></li>
+                <li><a href="#contact">İletişim</a></li>
+                <li class="hide-desktop"><a href="#contact" class="btn btn-primary btn-sm">Teklif Al</a></li>
+            </ul>
+
+            <div class="flex" style="gap: 15px;">
+                <a href="#contact" class="btn btn-primary btn-sm hide-mobile">Teklif Al</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         Hero Section
+         ======================================== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="grid-pattern"></div>
+            <div class="gradient-orb gradient-orb-1"></div>
+            <div class="gradient-orb gradient-orb-2"></div>
+            <div class="code-rain" id="codeRain"></div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    <span>Yeni Nesil Yazılım Çözümleri</span>
+                </div>
+
+                <h1>
+                    Fikirlerinizi <br>
+                    <span class="gradient-text">Kodla Hayata</span> <br>
+                    Geçiriyoruz
+                </h1>
+
+                <p class="hero-description">
+                    Modern teknolojiler ve yenilikçi yaklaşımlarla işletmenizi
+                    dijital dünyada bir adım öne taşıyoruz. Web, mobil ve
+                    kurumsal yazılım çözümleri.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary btn-lg">
+                        <i class="fas fa-rocket"></i>
+                        Projenizi Başlatın
+                    </a>
+                    <a href="#projects" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-folder-open"></i>
+                        Projelerimiz
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Tamamlanan Proje</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Mutlu Müşteri</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8+</div>
+                        <div class="stat-label">Yıllık Deneyim</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         Services Section
+         ======================================== -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Hizmetlerimiz</span>
+                <h2>Sunduğumuz Çözümler</h2>
+                <p>İşletmenizin ihtiyaçlarına özel, modern ve ölçeklenebilir yazılım çözümleri sunuyoruz.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card service-card">
+                    <div class="card-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="card-title">Web Geliştirme</h3>
+                    <p class="card-text">
+                        Responsive, SEO uyumlu ve yüksek performanslı web siteleri
+                        ve web uygulamaları geliştiriyoruz.
+                    </p>
+                    <a href="#contact" class="learn-more">
+                        Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="card service-card">
+                    <div class="card-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="card-title">Mobil Uygulama</h3>
+                    <p class="card-text">
+                        iOS ve Android platformları için native ve cross-platform
+                        mobil uygulamalar geliştiriyoruz.
+                    </p>
+                    <a href="#contact" class="learn-more">
+                        Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="card service-card">
+                    <div class="card-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="card-title">Kurumsal Yazılım</h3>
+                    <p class="card-text">
+                        ERP, CRM ve özel iş süreçlerinize uygun kurumsal
+                        yazılım çözümleri sunuyoruz.
+                    </p>
+                    <a href="#contact" class="learn-more">
+                        Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="card service-card">
+                    <div class="card-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="card-title">E-Ticaret</h3>
+                    <p class="card-text">
+                        Güvenli ödeme sistemleri ve stok yönetimi ile
+                        güçlü e-ticaret platformları kuruyoruz.
+                    </p>
+                    <a href="#contact" class="learn-more">
+                        Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="card service-card">
+                    <div class="card-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="card-title">Cloud Çözümler</h3>
+                    <p class="card-text">
+                        AWS, Azure ve Google Cloud altyapıları ile
+                        ölçeklenebilir bulut çözümleri sunuyoruz.
+                    </p>
+                    <a href="#contact" class="learn-more">
+                        Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="card service-card">
+                    <div class="card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="card-title">Güvenlik & Bakım</h3>
+                    <p class="card-text">
+                        Yazılımlarınızın güvenliğini sağlıyor, düzenli
+                        bakım ve güncelleme hizmetleri sunuyoruz.
+                    </p>
+                    <a href="#contact" class="learn-more">
+                        Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         Why Us Section
+         ======================================== -->
+    <section class="section why-us" id="why-us">
+        <div class="container">
+            <div class="why-us-grid">
+                <div class="why-us-content">
+                    <span class="subtitle">Neden Biz</span>
+                    <h2>Fark Yaratan Yazılım Ortağınız</h2>
+                    <p>
+                        8 yılı aşkın deneyimimizle, işletmelerin dijital
+                        dönüşüm yolculuğunda güvenilir bir partner oluyoruz.
+                    </p>
+
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Modern Teknolojiler</h4>
+                                <p>React, Vue, Node.js, Python ve daha fazlası ile güncel çözümler.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Uzman Ekip</h4>
+                                <p>Alanında deneyimli yazılımcılar ve tasarımcılardan oluşan ekip.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Zamanında Teslimat</h4>
+                                <p>Projeleri belirlenen sürede ve bütçede tamamlıyoruz.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>7/24 Destek</h4>
+                                <p>Proje sonrası teknik destek ve bakım hizmetleri sunuyoruz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="why-us-visual">
+                    <div class="code-window">
+                        <div class="code-window-header">
+                            <span class="code-window-dot red"></span>
+                            <span class="code-window-dot yellow"></span>
+                            <span class="code-window-dot green"></span>
+                        </div>
+                        <div class="code-window-body">
+                            <div class="code-line">
+                                <span class="line-number">1</span>
+                                <span class="code-keyword">const</span> <span class="code-variable">techcode</span> <span class="code-operator">=</span> <span class="code-operator">{</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">2</span>
+                                <span class="code-variable">  name</span>: <span class="code-string">"TechCode"</span>,
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">3</span>
+                                <span class="code-variable">  mission</span>: <span class="code-string">"Dijital dönüşüm"</span>,
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">4</span>
+                                <span class="code-variable">  experience</span>: <span class="code-string">"8+ yıl"</span>,
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">5</span>
+                                <span class="code-variable">  projects</span>: <span class="code-function">150</span>,
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">6</span>
+                                <span class="code-variable">  technologies</span>: <span class="code-operator">[</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">7</span>
+                                <span class="code-string">    "React"</span>, <span class="code-string">"Vue"</span>, <span class="code-string">"Node.js"</span>,
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">8</span>
+                                <span class="code-string">    "Python"</span>, <span class="code-string">"PHP"</span>, <span class="code-string">"Go"</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">9</span>
+                                <span class="code-operator">  ]</span>,
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">10</span>
+                                <span class="code-function">  build</span>: <span class="code-keyword">async</span> () <span class="code-operator">=></span> <span class="code-operator">{</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">11</span>
+                                <span class="code-keyword">    return</span> <span class="code-string">"success"</span>;
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">12</span>
+                                <span class="code-operator">  }</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">13</span>
+                                <span class="code-operator">}</span>;
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">14</span>
+                                <span class="code-comment">// Hayallerinizi kodluyoruz...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         Projects Section
+         ======================================== -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Portfolyo</span>
+                <h2>Son Projelerimiz</h2>
+                <p>Farklı sektörlerden müşterilerimiz için geliştirdiğimiz bazı projeler.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card project-card">
+                    <div class="project-image">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, #1a2232 0%, #2a3444 100%);display:flex;align-items:center;justify-content:center;">
+                            <i class="fas fa-store" style="font-size:3rem;color:var(--accent-blue);opacity:0.5;"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-ghost btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">MongoDB</span>
+                        </div>
+                        <h3>E-Ticaret Platformu</h3>
+                        <p>Büyük ölçekli bir perakende şirketi için geliştirilen e-ticaret platformu.</p>
+                        <a href="#" class="project-link">
+                            Projeyi İncele <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card project-card">
+                    <div class="project-image">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, #1a2232 0%, #2a3444 100%);display:flex;align-items:center;justify-content:center;">
+                            <i class="fas fa-heartbeat" style="font-size:3rem;color:var(--accent-purple);opacity:0.5;"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-ghost btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="project-tag">Vue.js</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">PostgreSQL</span>
+                        </div>
+                        <h3>Sağlık Yönetim Sistemi</h3>
+                        <p>Hastaneler için hasta takip ve randevu yönetim sistemi.</p>
+                        <a href="#" class="project-link">
+                            Projeyi İncele <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card project-card">
+                    <div class="project-image">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, #1a2232 0%, #2a3444 100%);display:flex;align-items:center;justify-content:center;">
+                            <i class="fas fa-graduation-cap" style="font-size:3rem;color:var(--accent-green);opacity:0.5;"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-ghost btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">Firebase</span>
+                        </div>
+                        <h3>Eğitim Mobil Uygulaması</h3>
+                        <p>Online eğitim platformu için iOS ve Android uygulaması.</p>
+                        <a href="#" class="project-link">
+                            Projeyi İncele <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card project-card">
+                    <div class="project-image">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, #1a2232 0%, #2a3444 100%);display:flex;align-items:center;justify-content:center;">
+                            <i class="fas fa-chart-line" style="font-size:3rem;color:var(--accent-blue);opacity:0.5;"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-ghost btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="project-tag">Angular</span>
+                            <span class="project-tag">.NET Core</span>
+                            <span class="project-tag">SQL Server</span>
+                        </div>
+                        <h3>Finans Dashboard</h3>
+                        <p>Finans şirketi için gerçek zamanlı veri analiz paneli.</p>
+                        <a href="#" class="project-link">
+                            Projeyi İncele <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card project-card">
+                    <div class="project-image">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, #1a2232 0%, #2a3444 100%);display:flex;align-items:center;justify-content:center;">
+                            <i class="fas fa-truck" style="font-size:3rem;color:var(--accent-purple);opacity:0.5;"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-ghost btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="project-tag">Next.js</span>
+                            <span class="project-tag">GraphQL</span>
+                            <span class="project-tag">AWS</span>
+                        </div>
+                        <h3>Lojistik Takip Sistemi</h3>
+                        <p>Kargo ve teslimat süreçleri için entegre takip sistemi.</p>
+                        <a href="#" class="project-link">
+                            Projeyi İncele <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card project-card">
+                    <div class="project-image">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, #1a2232 0%, #2a3444 100%);display:flex;align-items:center;justify-content:center;">
+                            <i class="fas fa-hotel" style="font-size:3rem;color:var(--accent-green);opacity:0.5;"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-ghost btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="project-tag">Laravel</span>
+                            <span class="project-tag">Vue.js</span>
+                            <span class="project-tag">MySQL</span>
+                        </div>
+                        <h3>Otel Rezervasyon Sistemi</h3>
+                        <p>Otel zinciri için online rezervasyon ve yönetim sistemi.</p>
+                        <a href="#" class="project-link">
+                            Projeyi İncele <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-eye"></i>
+                    Tüm Projeleri Gör
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         Testimonials Section
+         ======================================== -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Referanslar</span>
+                <h2>Müşterilerimiz Ne Diyor?</h2>
+                <p>Birlikte çalıştığımız müşterilerimizin görüşleri.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card testimonial-card">
+                    <p class="testimonial-text">
+                        "TechCode ekibi, e-ticaret projemizi mükemmel bir şekilde hayata geçirdi.
+                        Profesyonel yaklaşımları ve teknik uzmanlıkları sayesinde satışlarımız %200 arttı."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <div style="width:100%;height:100%;background:var(--accent-gradient);display:flex;align-items:center;justify-content:center;color:var(--bg-primary);font-weight:600;">AY</div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Ahmet Yılmaz</h4>
+                            <span>CEO, RetailMax</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card testimonial-card">
+                    <p class="testimonial-text">
+                        "Hastane yönetim sistemimiz için TechCode ile çalışmak harika bir deneyimdi.
+                        Süreçlerimiz artık çok daha verimli ve hasta memnuniyeti arttı."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <div style="width:100%;height:100%;background:var(--accent-gradient);display:flex;align-items:center;justify-content:center;color:var(--bg-primary);font-weight:600;">ZK</div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Zeynep Kaya</h4>
+                            <span>IT Direktörü, MediCare</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card testimonial-card">
+                    <p class="testimonial-text">
+                        "Mobil uygulamamız tam istediğimiz gibi oldu. TechCode'un yaratıcı tasarım
+                        anlayışı ve teknik becerisi gerçekten etkileyici."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <div style="width:100%;height:100%;background:var(--accent-gradient);display:flex;align-items:center;justify-content:center;color:var(--bg-primary);font-weight:600;">MD</div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Mehmet Demir</h4>
+                            <span>Kurucu, EduLearn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         Contact Section
+         ======================================== -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">İletişim</span>
+                <h2>Projenizi Konuşalım</h2>
+                <p>Bir sonraki projeniz için bizimle iletişime geçin. Size en uygun çözümü birlikte bulalım.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Bize Ulaşın</h3>
+                    <p>Sorularınız mı var? Bize mesaj gönderin, en kısa sürede dönüş yapalım.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h5>Adres</h5>
+                                <p>Teknokent, A Blok No: 42<br>Kadıköy, İstanbul</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h5>E-posta</h5>
+                                <a href="mailto:info@techcode.com.tr">info@techcode.com.tr</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h5>Telefon</h5>
+                                <a href="tel:+902161234567">+90 (216) 123 45 67</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Ad Soyad</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Adınız Soyadınız" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="ornek@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="+90 (___) ___ __ __">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Konu</label>
+                            <select class="form-control" id="subject" name="subject">
+                                <option value="">Konu Seçin</option>
+                                <option value="web">Web Geliştirme</option>
+                                <option value="mobile">Mobil Uygulama</option>
+                                <option value="enterprise">Kurumsal Yazılım</option>
+                                <option value="ecommerce">E-Ticaret</option>
+                                <option value="other">Diğer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesajınız</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" placeholder="Projeniz hakkında bize bilgi verin..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i>
+                        Mesaj Gönder
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         Footer
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">&lt;/&gt;</div>
+                        <span>TechCode</span>
+                    </a>
+                    <p>Modern teknolojiler ve yenilikçi yaklaşımlarla işletmenizi dijital dünyada bir adım öne taşıyoruz.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-title">Hizmetler</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Web Geliştirme</a></li>
+                        <li><a href="#services">Mobil Uygulama</a></li>
+                        <li><a href="#services">Kurumsal Yazılım</a></li>
+                        <li><a href="#services">E-Ticaret</a></li>
+                        <li><a href="#services">Cloud Çözümler</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-title">Şirket</h4>
+                    <ul class="footer-links">
+                        <li><a href="#why-us">Hakkımızda</a></li>
+                        <li><a href="#projects">Projeler</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Kariyer</a></li>
+                        <li><a href="#contact">İletişim</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-title">Destek</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">SSS</a></li>
+                        <li><a href="#">Teknik Destek</a></li>
+                        <li><a href="#">Gizlilik Politikası</a></li>
+                        <li><a href="#">Kullanım Koşulları</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechCode. Tüm hakları saklıdır.</p>
+                <p>Made with <span style="color: var(--accent-blue);">&lt;/&gt;</span> in Istanbul</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
